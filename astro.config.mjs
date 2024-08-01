@@ -4,7 +4,11 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
+const site = 'https://hard-devs.github.io/HardDevs-Website/';
+const base = import.meta.env.MODE != "development" ? site: "";
+
 export default defineConfig({
-	site: 'https://example.com',
+	baseUrl: base,
+	site: site,
 	integrations: [mdx(), sitemap()],
 });
